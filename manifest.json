@@ -1,0 +1,14 @@
+{
+    "manifest_version": 2,
+    "name": "TSTのタブを閉じるボタンの挙動を変更",
+    "version": "0.1.0",
+    "description": "TSTのタブを閉じるボタンの挙動を\n\nツリーが開いていても閉じていても、左クリックでそのタブのみを閉じる / ホイールクリックでそのツリー内のタブを閉じる\n\nに変更します。\nこのアドオンは Tree Style Tab https://addons.mozilla.org/ja/firefox/addon/tree-style-tab/ がないと動作しません。",
+    "background": {
+        "scripts": ["background.js"]
+    },
+    "browser_specific_settings": {
+        "gecko": {
+            "id": "tst-change-close-tab-button-behavior@rinsuki.net"
+        }
+    }
+}
