@@ -1,16 +1,25 @@
 const TST_ID="treestyletab@piro.sakura.ne.jp"
 
+const sleep = msec => new Promise(resolve => setTimeout(resolve, msec))
+
 async function submitToTST() {
-    try {
-        await browser.runtime.sendMessage(TST_ID, {
-            type: "register-self",
-            name: browser.runtime.getManifest().name,
-            icons: browser.runtime.getManifest().icons,
-            listeningTypes: ["tab-clicked"]
-        })
-        console.log(["successful submit to TST"])
-    } catch(e) {
-        console.error(["Failed to connect with TST", e])
+    var retryCount = 0
+    while (retryCount < 5) {
+        console.log("trying to submit addon information to TST...", retryCount)
+        await sleep(1000 * retryCount)
+        try {
+            await browser.runtime.sendMessage(TST_ID, {
+                type: "register-self",
+                name: browser.runtime.getManifest().name,
+                icons: browser.runtime.getManifest().icons,
+                listeningTypes: ["tab-clicked"]
+            })
+            console.log(["successful submit to TST"])
+            break
+        } catch(e) {
+            console.error(["Failed to connect with TST", e])
+        }
+        retryCount++
     }
 }
 
