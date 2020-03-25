@@ -24,7 +24,6 @@ async function submitToTST() {
 }
 
 async function main() {
-    await submitToTST()
     browser.runtime.onMessageExternal.addListener(async (message, sender) => {
         if (sender.id !== TST_ID) return
         console.log(message)
@@ -48,5 +47,6 @@ async function main() {
             break
         }
     })
+    await submitToTST()
 }
 main()
