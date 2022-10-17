@@ -1,0 +1,4 @@
+{
+    "extensionName": { "message": "TST Change Close Tab Button Behavior" },
+    "extensionDescription": { "message": "Changes the behavior of the close button in tabs as:\nLeft-click to close the individual tab / Middle-click to close the whole tree.\nThis add-on depends on Tree Style Tab: https://addons.mozilla.org/firefox/addon/tree-style-tab/" }
+}
